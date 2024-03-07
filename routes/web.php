@@ -19,7 +19,7 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
-// Route::get('/', [MainController::class, 'index'])->name('home');
+Route::get('/', [MainController::class, 'welcome'])->name('home');
 
 Route::prefix('projects')->name('projects.')->group(function(){
     
