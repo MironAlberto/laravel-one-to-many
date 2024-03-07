@@ -1,5 +1,7 @@
 @extends('layouts.guest')
 
+@section('page-title', 'Register')
+
 @section('main-content')
     <div class="text-center">
         @if ($errors->any())
