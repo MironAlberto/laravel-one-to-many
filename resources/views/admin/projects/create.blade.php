@@ -42,15 +42,24 @@
                 @enderror
             </div>
 
-            {{-- <div class="mb-3">
-                <label for="slug" class="form-label fw-bolder">SLUG</label>
-                <input value="{{ old('slug') }}" type="text" class="form-control" @error('slug') is-invalid @enderror id="slug" name="slug" placeholder="Add your Project SLUG..." max="255">
-                @error('slug')
+            <div class="mb-3">
+                <label for="type_id" class="form-label fw-bolder">Type</label>
+                <select name="type_id" id="type_id" class="form-select" @error('type_id') is-invalid @enderror>
+                    <option value="" {{ old('type_id') == null ? 'selected' : '' }}>
+                        Select your Programming Type...
+                    </option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
+                            {{ $type->title }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('type_id')
                     <div class="alert alert-danger">
                         {{ $message }}
                     </div>
                 @enderror
-            </div> --}}
+            </div>
 
             <div>
                 <button type="submit" class="btn btn-dark w-100 fw-bolder">

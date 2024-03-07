@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'My Projects')
+@section('page-title', 'My Types')
 
 @section('main-content')
     <div class="row">
@@ -8,7 +8,7 @@
             <div class="card text-bg-dark">
                 <div class="card-body">
                     <h1 class="text-center text-light">
-                        My Projects
+                        My Types
                     </h1>
 
                     <div>
@@ -16,34 +16,22 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">URL</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Used Type</th>
                                     <th scope="col" colspan="2" class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($projects as $project)
+                                @foreach ($types as $type)
                                     <tr>
-                                        <th scope="row">{{ $project->id }}</th>
-                                        <td>{{ $project->url }}</td>
-                                        <td>{{ $project->title }}</td>
+                                        <th scope="row">{{ $type->id }}</th>
+                                        <td>{{ $type->title }}</td>
                                         <td>
-                                            @if ($project->type != null)
-                                                <a href="{{ route('admin.types.show', ['type' => $project->type->id]) }}" class="link-light fw-bolder">
-                                                    {{ $project->type->title }}
-                                                </a>
-                                            @else
-                                                Not Specified
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}" class="btn btn-xs btn-light text-dark fw-bolder">
+                                            <a href="{{ route('admin.types.show', ['type' => $type->id]) }}" class="btn btn-xs btn-light text-dark fw-bolder w-100">
                                                 Show
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}" class="btn btn-secondary fw-bolder text-white w-100">
+                                            <a href="{{ route('admin.types.edit', ['type' => $type->id]) }}" class="btn btn-secondary fw-bolder text-white w-100">
                                                 Update
                                             </a>
                                         </td>

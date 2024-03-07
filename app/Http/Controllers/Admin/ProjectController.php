@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateProjectRequest;
 
 // Models
 use App\Models\Project;
+use App\Models\Type;
 
 use Illuminate\Http\Request;
 
@@ -29,8 +30,10 @@ class ProjectController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('admin.projects.create');
+    {   
+        $types = Type::all();
+
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -42,7 +45,7 @@ class ProjectController extends Controller
 
         $project = Project::create($validData);
 
-        return redirect()->route('admin.projects.show', ['project' => $project->id]);
+        return redirect()->route('admin.projects.show', compact('project'));
     }
 
     /**
@@ -58,8 +61,10 @@ class ProjectController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Project $project)
-    {
-        return view('admin.projects.edit', compact('project'));
+    {   
+        $types = Type::all();
+
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**

@@ -27,7 +27,10 @@
                                 <a class="nav-link" href="{{ route('admin.projects.index') }}">My Projects</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.projects.create') }}"> Add Project</a>
+                                <a class="nav-link" href="{{ route('admin.projects.create') }}">Add Project</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.types.index') }}">My Types</a>
                             </li>
                         </ul>
 
