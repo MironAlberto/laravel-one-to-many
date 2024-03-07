@@ -49,7 +49,7 @@
 
                     <h2 class="mb-5">
                         <div>
-                                USED TYPE:
+                            USED TYPE:
                         </div>
                         @if ($project->type != null)
                             <a href="{{ route('admin.types.show', ['type' => $project->type->id]) }}" class="link-light fw-bolder">
